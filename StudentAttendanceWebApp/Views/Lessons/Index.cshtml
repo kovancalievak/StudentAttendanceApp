@@ -1,0 +1,41 @@
+﻿@model IEnumerable<StudentAttendanceWebApp.Models.Lesson>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Students Attendance Control</h2>
+
+<button style="background-color:#d2d5dd; border:none; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; width:125px; height:50px; border-radius:8px;">
+    @Html.ActionLink("Create New", "Create")
+</button>
+<table class="table">
+    <tr>
+        <th>
+            Lesson Date
+            <!-- @Html.DisplayNameFor(model => model.lessonDate) -->
+        </th>
+        <th>
+            Students Full Name
+            <!--@Html.DisplayNameFor(model => model.studentsAttendance) -->
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.lessonDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.studentsAttendance)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.lessonNum }) |
+            @Html.ActionLink("Details", "Details", new { id=item.lessonNum }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.lessonNum })
+        </td>
+    </tr>
+}
+
+</table>
